@@ -1,7 +1,6 @@
 presentsJson.map((item) => {
   // Seleciona a div com o id 'area-grid'
   const areaGrid = document.querySelector('#area-grid');
-  console.log(areaGrid)
   
   // Cria a estrutura principal da nova div
   const newDiv = document.createElement('div');
