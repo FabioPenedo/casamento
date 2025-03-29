@@ -1,7 +1,7 @@
 export default function SectionOne() {
   return (
     <section className="h-auto flex flex-col text-white bg-white">
-      <img className="w-full" src="/images/sectionOne.png" alt="" />
+      <img className="w-full" src="/images/sectionOne.png" loading="lazy" alt="" />
       <div className="flex flex-col items-center">
         <h1
           className="text-color1 text-6xl font-mono tracking-[10px] max-md:text-5xl max-md:tracking-[5px]
