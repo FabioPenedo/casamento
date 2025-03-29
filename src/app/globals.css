@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color1: #557c70;
+  --color2: #d2e4b4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.bgSectionOne {
+  background-image: url("/images/sectionOne.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
