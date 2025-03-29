@@ -16,6 +16,7 @@ export default function SectionTwo() {
           <Card key={index} isPressable shadow="sm" onPress={() => console.log("item pressed")}>
             <CardBody className="overflow-visible p-0">
               <Image
+                loading="lazy"
                 alt={item.title}
                 className="w-full object-contain p-3"
                 radius="lg"

@@ -1,6 +1,6 @@
 "use client"
 
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link } from "@heroui/react";
+import { Navbar, NavbarBrand } from "@heroui/react";
 
 export function NavbarMain() {
   return (
@@ -14,7 +14,7 @@ export function NavbarMain() {
             </div>
             <span className="font-normal mt-3 text-sm">(Verena Menezes)</span>
           </div>
-          <img src="/images/qrcode.png" width={95} alt="QR Code PIX" className="ml-5 rounded-sm" />
+          <img loading="lazy" src="/images/qrcode.png" width={95} alt="QR Code PIX" className="ml-5 rounded-sm" />
         </div>
       </NavbarBrand>
     </Navbar>
