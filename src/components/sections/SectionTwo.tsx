@@ -1,11 +1,44 @@
 "use client"
 
 import { List } from "@/mock/List";
-import { Card, CardBody, CardFooter, Image, Tab, Tabs } from "@heroui/react";
+import { Button, Card, CardBody, CardFooter, Image, Tab, Tabs } from "@heroui/react";
+import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
 
 export default function SectionTwo() {
   const [selectedTab, setSelectedTab] = useState("geral");
+
+
+   const handleCheckout = async (item: any) => {
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({ item }),
+      });
+
+      const { sessionId } = await response.json();
+      console.log(sessionId)
+
+      if(!sessionId) {
+        throw new Error("Session ID não retornado pelo backend.");
+      }
+
+      const stripe = await stripePromise;
+
+      if (!stripe) {
+        throw new Error("Falha ao carregar o Stripe.");
+      }
+
+      await stripe.redirectToCheckout({ sessionId });
+    } catch (error) {
+      console.error("Erro ao redirecionar para o checkout:", error);
+    }
+  }
+
+
   return (
     <section className="h-auto mt-16 pt-20 px-7 flex flex-col items-center bg-color2">
       <h1
@@ -42,9 +75,14 @@ export default function SectionTwo() {
                 height={500}
               />
             </CardBody>
-            <CardFooter className="text-small justify-between">
-              <span className="text-color1 text-base font-medium">{item.title}</span>
-              <span className="text-default-500 text-base">{item.price}</span>
+            <CardFooter className="flex flex-col">
+              <div className="flex justify-between w-full">
+                <span className="text-color1 text-base font-medium">{item.title}</span>
+                <span className="text-default-500 text-base">R$ {item.price}</span>
+              </div>
+              <Button onPress={() => handleCheckout(item)} className="mt-2 w-full">
+                Comprar
+              </Button>
             </CardFooter>
           </Card>
         ))}
