@@ -5,36 +5,44 @@ import { Button, Card, CardBody, CardFooter, Image, Tab, Tabs } from "@heroui/re
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
 
 export default function SectionTwo() {
   const [selectedTab, setSelectedTab] = useState("geral");
+  const [isLoading, setIsLoading] = useState(false);
 
 
    const handleCheckout = async (item: any) => {
     try {
-      const response = await fetch("/api/checkout", {
+      setIsLoading(true);
+      const checkoutResponse = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify({ item }),
       });
 
-      const { sessionId } = await response.json();
-      console.log(sessionId)
+      const stripeClient = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUB_KEY as string);
 
-      if(!sessionId) {
-        throw new Error("Session ID não retornado pelo backend.");
+      if(!stripeClient) {
+        throw new Error("Falha para inicializar o Stripe.");
       }
 
-      const stripe = await stripePromise;
-
-      if (!stripe) {
-        throw new Error("Falha ao carregar o Stripe.");
+      const { sessionId } = await checkoutResponse.json();
+      
+      if (!sessionId) {
+        throw new Error("Session ID não recebido da API");
       }
 
-      await stripe.redirectToCheckout({ sessionId });
+      const { error } = await stripeClient.redirectToCheckout({ 
+        sessionId: sessionId 
+      });
+
+      if (error) {
+        throw error;
+      }
     } catch (error) {
       console.error("Erro ao redirecionar para o checkout:", error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -80,7 +88,7 @@ export default function SectionTwo() {
                 <span className="text-color1 text-base font-medium">{item.title}</span>
                 <span className="text-default-500 text-base">R$ {item.price}</span>
               </div>
-              <Button onPress={() => handleCheckout(item)} className="mt-2 w-full">
+              <Button disabled={isLoading} isLoading={isLoading} onPress={() => handleCheckout(item)} className="mt-2 w-full">
                 Comprar
               </Button>
             </CardFooter>
