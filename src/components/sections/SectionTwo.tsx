@@ -1,6 +1,7 @@
 "use client"
 
 import { List } from "@/mock/List";
+import { ListType } from "@/types/ListType";
 import { Button, Card, CardBody, CardFooter, Image, Tab, Tabs } from "@heroui/react";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
@@ -11,7 +12,7 @@ export default function SectionTwo() {
   const [isLoading, setIsLoading] = useState(false);
 
 
-   const handleCheckout = async (item: any) => {
+   const handleCheckout = async (item: ListType) => {
     try {
       setIsLoading(true);
       const checkoutResponse = await fetch("/api/checkout", {
