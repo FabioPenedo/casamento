@@ -2,13 +2,21 @@
 
 import { List } from "@/mock/List";
 import { ListType } from "@/types/ListType";
-import { Button, Card, CardBody, CardFooter, Image, Spinner, Tab, Tabs } from "@heroui/react";
+import { Button, Card, CardBody, CardFooter, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Image, Spinner } from "@heroui/react";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
 
 export default function SectionTwo() {
-  const [selectedTab, setSelectedTab] = useState("geral");
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const categories = [
+    { key: "geral", label: "Geral" },
+    { key: "cozinha", label: "Cozinha" },
+    { key: "quarto", label: "Quarto" },
+    { key: "sala", label: "Sala" },
+    { key: "banheiro", label: "Banheiro" }
+  ];
 
   const handleCheckout = async (item: ListType) => {
     try {
@@ -57,22 +65,30 @@ export default function SectionTwo() {
       >
         Sugestão de Presentes
       </h1>
-      <div className="flex gap-4 mb-10">
-        <Tabs
-          aria-label="Tabs variants"
-          variant="underlined"
-          selectedKey={selectedTab}
-          onSelectionChange={(key) => setSelectedTab(key as string)}
-        >
-          <Tab key="geral" title="Geral" className="text-lg" />
-          <Tab key="cozinha" title="Cozinha" className="text-lg" />
-          <Tab key="quarto" title="Quarto" className="text-lg" />
-          <Tab key="sala" title="Sala" className="text-lg" />
-          <Tab key="banheiro" title="Banheiro" className="text-lg" />
-        </Tabs>
+      <div className="mb-10 w-full flex justify-center">
+        <Dropdown>
+          <DropdownTrigger>
+            <Button 
+              variant="shadow" 
+              className="capitalize"
+            >
+              {categories.find(cat => cat.key === selectedCategory)?.label || "Selecione uma categoria"}
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu 
+            aria-label="Categorias de presentes"
+            onAction={(key) => setSelectedCategory(key as string)}
+          >
+            {categories.map((category) => (
+              <DropdownItem key={category.key}>
+                {category.label}
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
+        </Dropdown>
       </div>
       <div className="gap-6 grid grid-cols-4 w-full max-md:grid-cols-2 max-sm:grid-cols-1">
-        {List.filter((item) => item.category == selectedTab).map((item, index) => (
+        {List.filter((item) => item.category == selectedCategory).map((item, index) => (
           <Card key={index} isPressable shadow="sm" onPress={() => console.log("item pressed")}>
             <CardBody className="overflow-visible p-0">
               <Image
