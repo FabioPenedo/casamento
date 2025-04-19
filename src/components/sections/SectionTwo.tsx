@@ -2,17 +2,15 @@
 
 import { List } from "@/mock/List";
 import { ListType } from "@/types/ListType";
-import { Button, Card, CardBody, CardFooter, Image, Tab, Tabs } from "@heroui/react";
+import { Button, Card, CardBody, CardFooter, Image, Spinner, Tab, Tabs } from "@heroui/react";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
-
 
 export default function SectionTwo() {
   const [selectedTab, setSelectedTab] = useState("geral");
   const [isLoading, setIsLoading] = useState(false);
 
-
-   const handleCheckout = async (item: ListType) => {
+  const handleCheckout = async (item: ListType) => {
     try {
       setIsLoading(true);
       const checkoutResponse = await fetch("/api/checkout", {
@@ -47,9 +45,13 @@ export default function SectionTwo() {
     }
   }
 
-
   return (
-    <section className="h-auto mt-16 pt-20 px-7 flex flex-col items-center bg-color2">
+    <section className="h-auto mt-16 pt-20 px-7 flex flex-col items-center bg-color2 relative">
+      {isLoading && (
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-50">
+          <Spinner size="lg" color="primary" />
+        </div>
+      )}
       <h1
         className="text-color1 text-4xl mb-10 font-mono tracking-[5px] text-center "
       >
@@ -89,7 +91,7 @@ export default function SectionTwo() {
                 <span className="text-color1 text-base font-medium">{item.title}</span>
                 <span className="text-default-500 text-base">R$ {item.price}</span>
               </div>
-              <Button disabled={isLoading} isLoading={isLoading} onPress={() => handleCheckout(item)} className="mt-2 w-full">
+              <Button onPress={() => handleCheckout(item)} className="mt-2 w-full">
                 Comprar
               </Button>
             </CardFooter>
