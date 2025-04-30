@@ -2,12 +2,6 @@ import { ListType } from "@/types/ListType";
 
 export const List: ListType[] = [
   {
-    category: "geral",
-    title: "Jogo de toalha",
-    img: "/images/presentes/jogo-de-toalha.png",
-    price: 60,
-  },
-  {
     category: "quarto",
     title: "Cama de casal",
     img: "/images/presentes/cama.png",
@@ -26,7 +20,7 @@ export const List: ListType[] = [
     price: 2400,
   },
   {
-    category: "geral",
+    category: "outros",
     title: "Maquina de lavar",
     img: "/images/presentes/maquina.png",
     price: 1800,
@@ -66,12 +60,6 @@ export const List: ListType[] = [
     title: "Panela de pressão elétrica",
     img: "/images/presentes/panela-de-pressao-eletrica.png",
     price: 490,
-  },
-  {
-    category: "banheiro",
-    title: "Torneira Banheiro",
-    img: "/images/presentes/torneira-banheiro.png",
-    price: 60,
   },
   {
     category: "cozinha",
@@ -114,5 +102,121 @@ export const List: ListType[] = [
     title: "Estante Aço Leve 5 Prateleiras",
     img: "/images/presentes/estante.png",
     price: 260,
-  }
+  },
+  {
+    category: "sala",
+    title: "Sofa",
+    img: "/images/presentes/sofa.png",
+    price: 870,
+  },
+  {
+    category: "sala",
+    title: "Porta Copos",
+    img: "/images/presentes/porta-copos.png",
+    price: 30,
+  },
+  {
+    category: "sala",
+    title: "Mesa de apoio",
+    img: "/images/presentes/mesa-de-apoio.png",
+    price: 175,
+  },
+  {
+    category: "sala",
+    title: "Kit Puff",
+    img: "/images/presentes/kit-puff.png",
+    price: 90,
+  },
+  {
+    category: "sala",
+    title: "Kit almofadas",
+    img: "/images/presentes/kit-almofadas.png",
+    price: 40,
+  },
+  {
+    category: "sala",
+    title: "Capacha",
+    img: "/images/presentes/capacho.png",
+    price: 60,
+  },
+  {
+    category: "outros",
+    title: "Prateleira",
+    img: "/images/presentes/prateleira.png",
+    price: 80,
+  },
+  {
+    category: "outros",
+    title: "Quadros decorativos",
+    img: "/images/presentes/quadros-decorativos.png",
+    price: 15,
+  },
+  {
+    category: "quarto",
+    title: "Travesseiro",
+    img: "/images/presentes/travesseiro.png",
+    price: 120,
+  },
+  {
+    category: "quarto",
+    title: "Jogo de cama",
+    img: "/images/presentes/jogo-de-cama.png",
+    price: 135,
+  },
+    {
+      category: "quarto",
+      title: "Guarda Roupas",
+      img: "/images/presentes/guarda-roupas.png",
+      price: 700,
+    },
+  {
+    category: "quarto",
+    title: "Cômoda",
+    img: "/images/presentes/comoda.png",
+    price: 330,
+  },
+  {
+    category: "quarto",
+    title: "Sapateira",
+    img: "/images/presentes/sapateira.png",
+    price: 290,
+  },
+  {
+    category: "quarto",
+    title: "Mesa de cabeceira",
+    img: "/images/presentes/mesa-cabeceira.png",
+    price: 185,
+  },
+  {
+    category: "banheiro",
+    title: "Suporte de shampo",
+    img: "/images/presentes/suporte-shampo.png",
+    price: 47,
+  },
+  {
+    category: "banheiro",
+    title: "Kit acessórios",
+    img: "/images/presentes/kit-acessorios.png",
+    price: 190,
+  },
+  {
+    category: "banheiro",
+    title: "Saboneteira",
+    img: "/images/presentes/saboneteira.png",
+    price: 50,
+  },
+  {
+    category: "banheiro",
+    title: "Lixeira de aço",
+    img: "/images/presentes/lixeira.png",
+    price: 120,
+  },
+  {
+    category: "banheiro",
+    title: "Jogo de toalha 4 peças",
+    img: "/images/presentes/jogo-de-toalha-4-pecas.png",
+    price: 140,
+  },
+
+  
 ]

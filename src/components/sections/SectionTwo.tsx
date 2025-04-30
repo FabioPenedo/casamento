@@ -11,7 +11,7 @@ export default function SectionTwo() {
   const [isLoading, setIsLoading] = useState(false);
 
   const categories = [
-    { key: "geral", label: "Geral" },
+    { key: "outros", label: "Outros" },
     { key: "cozinha", label: "Cozinha" },
     { key: "quarto", label: "Quarto" },
     { key: "sala", label: "Sala" },
