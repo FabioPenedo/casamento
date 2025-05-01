@@ -11,7 +11,7 @@ export const List: ListType[] = [
     category: "cozinha",
     title: "Geladeira",
     img: "/images/presentes/geladeira.png",
-    price: 2600,
+    price: 3000,
   },
   {
     category: "sala",
@@ -217,6 +217,95 @@ export const List: ListType[] = [
     img: "/images/presentes/jogo-de-toalha-4-pecas.png",
     price: 140,
   },
-
+  {
+    category: "cozinha",
+    title: "Chaleira",
+    img: "/images/presentes/chaleira.png",
+    price: 115,
+  },
+  {
+    category: "cozinha",
+    title: "Faqueiro em aço",
+    img: "/images/presentes/faqueiro.png",
+    price: 75,
+  },
+  {
+    category: "cozinha",
+    title: "Kit Utensílios em silicone",
+    img: "/images/presentes/kit-utensilios.png",
+    price: 36,
+  },
+  {
+    category: "cozinha",
+    title: "Jogo com 6 copos",
+    img: "/images/presentes/jogo-copos.png",
+    price: 36,
+  },
+  {
+    category: "cozinha",
+    title: "Jogo de taças de vidro",
+    img: "/images/presentes/jogo-de-tacas.png",
+    price: 60,
+  },
+  {
+    category: "cozinha",
+    title: "Kit potes de vidro",
+    img: "/images/presentes/kit-potes-vidro.png",
+    price: 140,
+  },
+  {
+    category: "cozinha",
+    title: "Garrafa Térmica de Plástico",
+    img: "/images/presentes/garrafa-termica.png",
+    price: 66,
+  },
+  {
+    category: "cozinha",
+    title: "Kit 6 potes de vidro redondo",
+    img: "/images/presentes/kit-potes-vidro-redondo.png",
+    price: 80,
+  },
+  {
+    category: "cozinha",
+    title: "Kit 20 peças de porcelana",
+    img: "/images/presentes/servico-jantar.png",
+    price: 290,
+  },
+  {
+    category: "cozinha",
+    title: "Cozinha com armário e balcão",
+    img: "/images/presentes/cozinha-armario-balcao.png",
+    price: 750,
+  },
+  {
+    category: "cozinha",
+    title: "Mixer Britânia",
+    img: "/images/presentes/mixer.png",
+    price: 100,
+  },
+  {
+    category: "cozinha",
+    title: "Mini Processador",
+    img: "/images/presentes/mini-processador.png",
+    price: 160,
+  },
+  {
+    category: "cozinha",
+    title: "Batedeira",
+    img: "/images/presentes/batedeira.png",
+    price: 358,
+  },
+  {
+    category: "cozinha",
+    title: "Kit 3 banquetas",
+    img: "/images/presentes/kit-banquetas.png",
+    price: 495,
+  },
+  {
+    category: "cozinha",
+    title: "Lixeira em aço inox",
+    img: "/images/presentes/lixeira-aco.png",
+    price: 104,
+  },
   
 ]

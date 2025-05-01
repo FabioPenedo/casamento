@@ -105,7 +105,7 @@ export default function SectionTwo() {
             <CardFooter className="flex flex-col">
               <div className="flex justify-between w-full">
                 <span className="text-color1 text-base font-medium">{item.title}</span>
-                <span className="text-default-500 text-base">R$ {item.price}</span>
+                <span className="text-default-500 text-base">R$ {item.price},00</span>
               </div>
               <Button onPress={() => handleCheckout(item)} className="mt-2 w-full">
                 Comprar
